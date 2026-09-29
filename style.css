@@ -1,215 +1,294 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* Base */
+
+/* TODO adjust colors, try different content-width, maybe reduce the number of different text sizes - calculate them ?! */
+
+
+/* Adding variables*/
 :root {
-  color: black;
-  opacity: 0.9;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  line-height: 1.5;
+  /* Type */
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+  --weight-text: 300;
+  --weight-strong: calc(var(--weight-text) + 100); /* one step heavier */
+  --leading: 1.7;
+  --leading-tight: 1.2;
+  --tracking: 0.1em;
+  --tracking-wide: calc(var(--tracking) * 3);
+
+  /* Space: s = body text size, each step halves or doubles */
+  --space-xs: calc(var(--space-s) / 2);
+  --space-s: 1.2rem;
+  --space-m: calc(var(--space-s) * 2);
+  --space-l: calc(var(--space-m) * 2);
+  --width-content: 36rem;
+  --indent: var(--space-m); /* side margin of lists, quotes, responses */
+
+  /* Color: 4 base colors, the rest mixed from them */
+  /* Maybe should reduce this even further and find better colors*/
+
+  --color-bg: ivory;
+  --color-text: color-mix(in srgb, black 90%, transparent);
+  --color-text-muted: color-mix(in srgb, var(--color-text) 65%, transparent);
+  --color-line: color-mix(in srgb, var(--color-text) 30%, transparent);
+  --color-accent: royalblue;
+  --color-link: crimson;
 }
 
+/* Base */
+
+/* body that everything inherits */
 body {
-  padding: 1.5rem;
+  padding: var(--space-s);
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: var(--weight-text);
+  line-height: var(--leading);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 /* Layout */
+
+/* centered text column */
 main {
-  max-inline-size: 36rem;
+  max-inline-size: var(--width-content);
   margin-inline: auto;
 }
 
+/* any element right after another, inside main */
 main * + * {
-  margin-block-start: 1em;
+  margin-block-start: var(--space-s);
 }
 
+/* ol, and ul inside section */
 ol,
-section ul,
+section ul {
+  margin-block-start: var(--space-m);
+  margin-block-end: var(--space-m);
+  margin-inline: var(--indent);
+  color: var(--color-text-muted);
+}
+
+/* blockquote and .response */
 blockquote,
 .response {
-  margin: 2.5rem 3rem;
+  margin-block-start: var(--space-m);
+  margin-block-end: var(--space-m);
+  padding-inline-start: var(--indent);
+  border-inline-start: calc(var(--space-xs) / 4) solid;
 }
 
 /* Headings */
+
+/* h1, h2 and h3 */
 h1,
 h2,
 h3 {
-  font-weight: 400;
-  line-height: 1.2;
-  text-wrap: balance; /* No lonely last word. */
+  font-weight: var(--weight-strong);
+  line-height: var(--leading-tight);
+  text-wrap: balance; /* no lonely last word */
 }
 
-h2,
-h3 {
-  margin-block-start: 2.5rem;
+/* p right after h2 or h3 */
+:is(h2, h3) + p {
+  margin-block-start: var(--space-xs);
 }
 
-main :is(h2, h3) + p {
-  margin-block-start: 0.5em;
-}
-
+/* h1: article title */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   text-align: center;
 }
 
+/* h2: section headings */
 h2 {
-  font-size: 1.75rem;
+  margin-block-start: var(--space-l);
+  font-size: 2.1rem;
 }
 
+/* h3: tip headings */
 h3 {
-  font-size: 1.5rem;
+  margin-block-start: var(--space-m); /* closer than h2 */
+  font-size: 1.6rem;
 }
 
 /* Text */
+
+/* all paragraphs */
 p {
-  text-wrap: pretty; /* Avoids single-word last lines. */
+  text-wrap: pretty; /* no single-word last lines */
 }
 
+/* header: site header and article header */
 header {
-  margin-block-end: 7rem;
+  margin-block-end: var(--space-l);
 }
 
+/* p inside header: intro under the title */
 header p {
-  margin-block-start: 1.5rem;
-  color: royalblue;
-  opacity: 0.7;
+  color: var(--color-accent);
 }
 
+/* header directly in body: site name */
+body > header {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking);
+}
+
+/* em highlighted by size and color */
 em {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1; /* big words don’t push lines apart */
   font-style: italic;
-  color: royalblue;
-  text-decoration: underline;
+  color: var(--color-accent);
 }
 
+/* cite: titles of works */
 cite {
   font-style: italic;
 }
 
+/* strong: bold phrases */
 strong {
-  font-weight: 400;
-  text-decoration: underline;
+  font-weight: var(--weight-strong);
 }
 
 /* Links */
+
+/* all links */
 a {
-  color: crimson;
+  color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
+/* link inside header: site name, conference links */
 header a {
   color: inherit;
 }
 
 /* Lists */
-li + li {
-  margin-block-start: 0;
-}
 
+/* ol, and ul inside section */
 ol,
 section ul {
-  font-size: 1.2rem;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  color: color-mix(in srgb, royalblue 70%, transparent);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking);
 }
 
+/* ol, and .questions */
 ol,
 .questions {
-  color: black; /*making the questions and ol distinct*/
-  font-weight: 400;
-  opacity: 0.6;
+  font-weight: var(--weight-strong);
 }
 
-ol li + li,
-.questions li + li {
-  margin-block-start: 0.4em;
-}
-
-/* Every ul in a section except .questions: items run inline, split by slashes. */
-section ul:not(.questions) {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 0.4em;
-}
-
-section ul:not(.questions) li:not(:last-child)::after {
-  content: " /";
-  opacity: 0.4;
-}
-
+/* .questions: the two question lists */
 .questions {
   letter-spacing: normal;
 }
 
-/* Quotes */
-blockquote {
-  font-size: 1.2rem;
-  font-style: italic;
-  opacity: 0.8;
+/* li right after li (all but the first) */
+li + li {
+  margin-block-start: var(--space-xs);
 }
 
-hr {
-  border-block-start: 0.05rem solid color-mix(in srgb, black 30%, transparent);
-  margin-block: 3rem;
-  margin-inline: 12rem;
-}
-
-/* Responses */
-.response {
-  padding-inline: 2.5rem;
-  padding-block: 1.25rem;
-  border: 1px solid color-mix(in srgb, black 10%, transparent);
-  border-radius: 2rem;
-  background-color: color-mix(in srgb, royalblue 5%, transparent);
-}
-
-.response p {
-  opacity: 0.8;
-  font-family: "Inter", sans-serif;
-  color: color-mix(in srgb, black 80%, transparent);
-  font-size: 1.25rem;
-}
-
-.response small {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  opacity: 0.5;
-}
-
-/* Reading */
-aside h2 {
-  color: color-mix(in srgb, black 50%, transparent);
-}
-
-aside li + li {
-  margin-block-start: 0.5em; /* A little air between the titles. */
-}
-
-/* Footer */
-footer {
-  color: color-mix(in srgb, black 50%, transparent);
-  letter-spacing: 0.3em;
+/* ol directly in article: the opening list */
+article > ol {
   text-transform: uppercase;
 }
 
-/* Phone */
+/* ul inside section, except .questions: inline lists */
+section ul:not(.questions) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  color: var(--color-accent);
+}
+
+/* li in those inline lists */
+section ul:not(.questions) li {
+  margin-block-start: 0; /* items share a row */
+}
+
+/* slash after each li but the last, in top-level section lists */
+article > section > ul:not(.questions) li:not(:last-child)::after {
+  content: " /";
+  color: var(--color-line);
+}
+
+/* ul inside section inside section, except .questions: tip lists as buttons */
+section section ul:not(.questions) {
+  font-weight: var(--weight-strong);
+  letter-spacing: normal;
+}
+
+/* li in those tip lists: button shape */
+section section ul:not(.questions) li {
+  padding-block: calc(var(--space-xs) / 2);
+  padding-inline: var(--space-s);
+  border: 1px solid var(--color-accent);
+  border-radius: calc(var(--space-xs) / 2);
+}
+
+/* Quotes */
+
+/* blockquote: line in link color */
+blockquote {
+  border-inline-start-color: var(--color-link);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* Divider */
+
+/* hr: short centered line */
+hr {
+  inline-size: calc(100% / 3); /* a third of the column */
+  margin-block-start: var(--space-l);
+  margin-block-end: var(--space-l);
+  margin-inline: auto;
+  border-block-start: 1px solid var(--color-line);
+}
+
+/* Responses */
+
+/* .response: line in accent color */
+.response {
+  border-inline-start-color: var(--color-accent);
+}
+
+/* p inside .response */
+.response p {
+  font-family: var(--font-secondary);
+}
+
+/* small inside .response: the byline */
+.response small {
+  display: block;
+  letter-spacing: var(--tracking);
+  color: var(--color-text-muted);
+}
+
+/* Reading */
+
+/* h2 inside aside: Further Reading heading */
+aside h2 {
+  color: var(--color-text-muted);
+}
+
+/* Footer */
+
+/* footer: the talk’s date */
+footer {
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Phone: under 40rem, smaller indent (40rem ≈ --width-content + body padding; var() doesn’t work here) */
 @media (width < 40rem) {
-  ol,
-  section ul,
-  blockquote,
-  .response {
-    margin-inline: 1.25rem;
-  }
-
-  hr {
-    margin-inline: 6rem;
-  }
-
-  .response {
-    padding-inline: 1.25rem;
+  :root {
+    --indent: var(--space-s);
   }
 }
