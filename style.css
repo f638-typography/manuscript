@@ -21,6 +21,7 @@ adjust colors, try different content-width, maybe reduce the number of different
   --leading-tight: 1.5;
   --tracking: 0.1em;
   --tracking-wide: calc(var(--tracking) * 3);
+  --underline: 0.08em;
 
   /* Space: s = body text size, each step halves or doubles */
   --space-xs: calc(var(--space-s) / 2);
@@ -115,6 +116,16 @@ h1 {
   text-align: center;
 }
 
+/* short line under the h1, decorative only (empty content, nothing to read out) */
+h1::after {
+  content: "";
+  display: block;
+  inline-size: var(--space-m);
+  margin-block-start: var(--space-s);
+  margin-inline: auto;
+  border-block-start: calc(var(--space-xs) / 4) solid;
+}
+
 /* h2: section headings */
 h2 {
   margin-block-start: var(--space-l);
@@ -176,7 +187,13 @@ strong {
 a {
   color: var(--color-link);
   text-decoration: underline;
+  text-decoration-thickness: var(--underline);
   text-underline-offset: 0.2em;
+}
+
+/* link on hover: underline 1.5× thicker */
+a:hover {
+  text-decoration-thickness: calc(var(--underline) * 1.5);
 }
 
 /* link inside header: site name, conference links */
