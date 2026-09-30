@@ -80,6 +80,8 @@ section ul,
 /* .example: stays close to the sentence that introduces it overwritting the settings above */
 .example {
   margin-block-start: var(--space-s);
+  color: var(--color-text);
+  font-style: italic;
 }
 
 /* blockquote and .response */
@@ -202,6 +204,17 @@ ol,
   letter-spacing: normal;
 }
 
+/* .questions directly in a top-level section: the first question list */
+article > section > .questions {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* .questions inside section inside section: the list under “Start with questions.” */
+section section .questions {
+  list-style-type: "– ";
+}
+
 /* li right after li (all but the first) */
 li + li {
   margin-block-start: var(--space-xs);
@@ -211,6 +224,11 @@ li + li {
 article > ol {
   text-transform: uppercase;
   font-weight: var(--weight-extra-strong);
+}
+
+/* ol directly in section: the Tips list */
+section > ol {
+  list-style-type: decimal;
 }
 
 /* ul inside section, except .questions: inline lists */
