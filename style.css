@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 
-/* TODO adjust colors, try different content-width, maybe reduce the number of different text sizes - calculate them ?! */
+/* TODO
+
+adjust colors, try different content-width, maybe reduce the number of different text sizes - calculate them ?!
+
+
+*/
 
 
 /* Adding variables*/
@@ -9,10 +14,11 @@
   /* Type */
   --font-primary: "Montserrat", sans-serif;
   --font-secondary: "Inter", sans-serif;
-  --weight-text: 300;
+  --weight-text: 400;
   --weight-strong: calc(var(--weight-text) + 100); /* one step heavier */
-  --leading: 1.7;
-  --leading-tight: 1.2;
+  --weight-extra-strong: calc(var(--weight-text) + 200);
+  --leading: 2.2;
+  --leading-tight: 1.5;
   --tracking: 0.1em;
   --tracking-wide: calc(var(--tracking) * 3);
 
@@ -21,15 +27,15 @@
   --space-s: 1.2rem;
   --space-m: calc(var(--space-s) * 2);
   --space-l: calc(var(--space-m) * 2);
-  --width-content: 36rem;
+  --width-content: 42rem;
   --indent: var(--space-m); /* side margin of lists, quotes, responses */
 
   /* Color: 4 base colors, the rest mixed from them */
   /* Maybe should reduce this even further and find better colors*/
 
-  --color-bg: ivory;
+  --color-bg: color-mix(in srgb, ivory 60%, transparent);
   --color-text: color-mix(in srgb, black 90%, transparent);
-  --color-text-muted: color-mix(in srgb, var(--color-text) 65%, transparent);
+  --color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);
   --color-line: color-mix(in srgb, var(--color-text) 30%, transparent);
   --color-accent: royalblue;
   --color-link: crimson;
@@ -61,13 +67,19 @@ main * + * {
   margin-block-start: var(--space-s);
 }
 
-/* ol, and ul inside section */
+/* ol, ul inside section, and .example */
 ol,
-section ul {
+section ul,
+.example {
   margin-block-start: var(--space-m);
   margin-block-end: var(--space-m);
   margin-inline: var(--indent);
   color: var(--color-text-muted);
+}
+
+/* .example: stays close to the sentence that introduces it overwritting the settings above */
+.example {
+  margin-block-start: var(--space-s);
 }
 
 /* blockquote and .response */
@@ -130,8 +142,10 @@ header p {
   color: var(--color-accent);
 }
 
-/* header directly in body: site name */
+/* header directly in body: Nicole Fenton*/
 body > header {
+  padding-block-start: var(--space-s);
+  padding-inline-start: var(--space-l);
   text-transform: uppercase;
   letter-spacing: var(--tracking);
 }
@@ -151,7 +165,7 @@ cite {
 
 /* strong: bold phrases */
 strong {
-  font-weight: var(--weight-strong);
+  font-weight: var(--weight-extra-strong);
 }
 
 /* Links */
@@ -196,6 +210,7 @@ li + li {
 /* ol directly in article: the opening list */
 article > ol {
   text-transform: uppercase;
+  font-weight: var(--weight-extra-strong);
 }
 
 /* ul inside section, except .questions: inline lists */
