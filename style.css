@@ -2,87 +2,87 @@
 
 /* Adding variables*/
 :root {
-  /* Type */
-  --font-primary: "IBM Plex Mono", monospace;
-  --font-secondary: "IBM Plex Sans", sans-serif;
-  --font-display: "VT323", monospace; /* headings */
-  --weight-text: 400;
-  --weight-strong: calc(var(--weight-text) + 100); /* one step heavier */
-  --weight-extra-strong: calc(var(--weight-text) + 200);
-  --leading: 1.9;
-  --leading-tight: 1.4;
-  --tracking: 0.04em;
-  --tracking-wide: calc(var(--tracking) * 3);
-  --underline: 0.1em;
+	/* Type */
+	--font-primary: "IBM Plex Mono", monospace;
+	--font-secondary: "IBM Plex Sans", sans-serif;
+	--font-display: "VT323", monospace; /* headings */
+	--weight-text: 400;
+	--weight-strong: calc(var(--weight-text) + 100); /* one step heavier */
+	--weight-extra-strong: calc(var(--weight-text) + 200);
+	--leading: 1.9;
+	--leading-tight: 1.4;
+	--tracking: 0.04em;
+	--tracking-wide: calc(var(--tracking) * 3);
+	--underline: 0.1em;
 
-  /* Space: s = body text size, each step halves or doubles */
-  --space-xs: calc(var(--space-s) / 2);
-  --space-s: 1.05rem;
-  --space-m: calc(var(--space-s) * 2);
-  --space-l: calc(var(--space-m) * 2);
-  --width-content: 40rem;
-  --indent: var(--space-m); /* side margin of lists, quotes, responses */
+	/* Space: s = body text size, each step halves or doubles */
+	--space-xs: calc(var(--space-s) / 2);
+	--space-s: 1.05rem;
+	--space-m: calc(var(--space-s) * 2);
+	--space-l: calc(var(--space-m) * 2);
+	--width-content: 40rem;
+	--indent: var(--space-m); /* side margin of lists, quotes, responses */
 
-  /* Color: 4 base colors, the rest mixed from them */
-  /* Maybe should reduce this even further and find better colors*/
+	/* Color: 4 base colors, the rest mixed from them */
+	/* Maybe should reduce this even further and find better colors*/
 
-  --color-bg: white;
-  --color-text: #111111;
-  --color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);
-  --color-line: color-mix(in srgb, var(--color-text) 30%, transparent);
-  --color-accent: green;
-  --color-link: sienna;
+	--color-bg: white;
+	--color-text: #111111;
+	--color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);
+	--color-line: color-mix(in srgb, var(--color-text) 30%, transparent);
+	--color-accent: green;
+	--color-link: sienna;
 }
 
 /* Base */
 
 /* body that everything inherits */
 body {
-  padding: var(--space-s);
-  font-family: var(--font-primary);
-  font-size: 1.05rem;
-  font-weight: var(--weight-text);
-  line-height: var(--leading);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+	padding: var(--space-s);
+	font-family: var(--font-primary);
+	font-size: 1.05rem;
+	font-weight: var(--weight-text);
+	line-height: var(--leading);
+	color: var(--color-text);
+	background-color: var(--color-bg);
 }
 
 /* Layout */
 
 /* centered text column */
 main {
-  max-inline-size: var(--width-content);
-  margin-inline: auto;
+	max-inline-size: var(--width-content);
+	margin-inline: auto;
 }
 
 /* any element right after another, inside main */
 main * + * {
-  margin-block-start: var(--space-s);
+	margin-block-start: var(--space-s);
 }
 
 /* ol, ul inside section, and .example */
 ol,
 section ul,
 .example {
-  margin-block-start: var(--space-m);
-  margin-block-end: var(--space-m);
-  margin-inline: var(--indent);
-  color: var(--color-text-muted);
+	margin-block-start: var(--space-m);
+	margin-block-end: var(--space-m);
+	margin-inline: var(--indent);
+	color: var(--color-text-muted);
 }
 
 /* .example: stays close to the sentence that introduces it overwritting the settings above */
 .example {
-  margin-block-start: var(--space-s);
-  color: var(--color-text);
-  font-style: italic;
+	margin-block-start: var(--space-s);
+	color: var(--color-text);
+	font-style: italic;
 }
 
 /* blockquote */
 blockquote {
-  margin-block-start: var(--space-m);
-  margin-block-end: var(--space-m);
-  padding-inline-start: var(--indent);
-  border-inline-start: calc(var(--space-xs) / 4) solid;
+	margin-block-start: var(--space-m);
+	margin-block-end: var(--space-m);
+	padding-inline-start: var(--indent);
+	border-inline-start: calc(var(--space-xs) / 4) solid;
 }
 
 /* Headings */
@@ -91,117 +91,117 @@ blockquote {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-strong);
-  line-height: var(--leading-tight);
-  text-wrap: balance; /* no lonely last word */
+	font-family: var(--font-display);
+	font-weight: var(--weight-strong);
+	line-height: var(--leading-tight);
+	text-wrap: balance; /* no lonely last word */
 }
 
 /* p right after h2 or h3 */
 :is(h2, h3) + p {
-  margin-block-start: var(--space-xs);
+	margin-block-start: var(--space-xs);
 }
 
 /* h1: article title */
 h1 {
-  font-size: 3.6rem;
-  text-align: center;
+	font-size: 3.6rem;
+	text-align: center;
 }
 
 /* short line under the h1, decorative only (empty content, nothing to read out) */
 h1::after {
-  content: "";
-  display: block;
-  inline-size: var(--space-m);
-  margin-block-start: var(--space-s);
-  margin-inline: auto;
-  border-block-start: calc(var(--space-xs) / 4) solid;
+	content: "";
+	display: block;
+	inline-size: var(--space-m);
+	margin-block-start: var(--space-s);
+	margin-inline: auto;
+	border-block-start: calc(var(--space-xs) / 4) solid;
 }
 
 /* h2: section headings */
 h2 {
-  margin-block-start: var(--space-l);
-  font-size: 2.6rem;
+	margin-block-start: var(--space-l);
+	font-size: 2.6rem;
 }
 
 /* h3: tip headings */
 h3 {
-  margin-block-start: var(--space-m); /* closer than h2 */
-  font-size: 2rem;
+	margin-block-start: var(--space-m); /* closer than h2 */
+	font-size: 2rem;
 }
 
 /* Text */
 
 /* all paragraphs */
 p {
-  text-wrap: pretty; /* no single-word last lines */
+	text-wrap: pretty; /* no single-word last lines */
 }
 
 /* header: site header and article header */
 header {
-  margin-block-end: var(--space-l);
+	margin-block-end: var(--space-l);
 }
 
 /* p inside header: intro under the title */
 header p {
-  color: var(--color-accent);
+	color: var(--color-accent);
 }
 
 /* header directly in body: Nicole Fenton*/
 body > header {
-  padding-block-start: var(--space-s);
-  padding-inline-start: var(--space-l);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking);
+	padding-block-start: var(--space-s);
+	padding-inline-start: var(--space-l);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking);
 }
 
 /* em highlighted by size and color */
 em {
-  font-size: 1.3rem;
-  line-height: 1; /* big words don’t push lines apart */
-  font-style: italic;
-  color: var(--color-accent);
+	font-size: 1.3rem;
+	line-height: 1; /* big words don’t push lines apart */
+	font-style: italic;
+	color: var(--color-accent);
 }
 
 /* cite: titles of works */
 cite {
-  font-style: italic;
+	font-style: italic;
 }
 
 /* strong: bold phrases */
 strong {
-  font-weight: var(--weight-extra-strong);
+	font-weight: var(--weight-extra-strong);
 }
 
 /* Links */
 
 /* all links */
 a {
-  color: var(--color-link);
-  text-decoration: underline;
-  text-decoration-thickness: var(--underline);
-  text-underline-offset: 0.2em;
+	color: var(--color-link);
+	text-decoration: underline;
+	text-decoration-thickness: var(--underline);
+	text-underline-offset: 0.2em;
 }
 
 /* link on hover: underline 1.5× thicker */
 a:hover {
-  text-decoration-thickness: calc(var(--underline) * 1.5);
+	text-decoration-thickness: calc(var(--underline) * 1.5);
 }
 
 /* link inside header or footer: site name, conference links, back to top */
 header a,
 footer a {
-  color: inherit;
+	color: inherit;
 }
 
 /* link inside nav: the contents read as a plain list */
 nav a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 /* nav: as much space above as the header leaves below it */
 nav {
-  margin-block-start: var(--space-l);
+	margin-block-start: var(--space-l);
 }
 
 /* Lists */
@@ -210,150 +210,150 @@ nav {
 ol,
 section ul,
 nav ul {
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking);
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking);
 }
 
 /* ol, and .questions */
 ol,
 .questions {
-  font-weight: var(--weight-strong);
+	font-weight: var(--weight-strong);
 }
 
 /* .questions: the two question lists */
 .questions {
-  letter-spacing: normal;
+	letter-spacing: normal;
 }
 
 /* .questions directly in a top-level section: the first question list */
 article > section > .questions {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
 }
 
 /* .questions inside section inside section: the list under “Start with questions.” */
 section section .questions {
-  list-style-type: "– ";
+	list-style-type: "– ";
 }
 
 /* li right after li (all but the first) */
 li + li {
-  margin-block-start: var(--space-xs);
+	margin-block-start: var(--space-xs);
 }
 
 /* ol directly in article: the opening list */
 article > ol {
-  text-transform: uppercase;
-  font-weight: var(--weight-extra-strong);
+	text-transform: uppercase;
+	font-weight: var(--weight-extra-strong);
 }
 
 /* ol directly in section: the Tips list */
 section > ol {
-  list-style-type: decimal;
+	list-style-type: decimal;
 }
 
 /* ul inside section, except .questions: inline lists */
 section ul:not(.questions) {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  color: var(--color-accent);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs);
+	color: var(--color-accent);
 }
 
 /* li in those inline lists */
 section ul:not(.questions) li {
-  margin-block-start: 0; /* items share a row */
+	margin-block-start: 0; /* items share a row */
 }
 
 /* slash after each li but the last, in top-level section lists */
 article > section > ul:not(.questions) li:not(:last-child)::after {
-  content: " /";
-  color: var(--color-line);
+	content: " /";
+	color: var(--color-line);
 }
 
 /* ul inside section inside section, except .questions: tip lists as buttons */
 section section ul:not(.questions) {
-  font-weight: var(--weight-strong);
-  letter-spacing: normal;
+	font-weight: var(--weight-strong);
+	letter-spacing: normal;
 }
 
 /* li in those tip lists: button shape */
 section section ul:not(.questions) li {
-  padding-block: calc(var(--space-xs) / 2);
-  padding-inline: var(--space-s);
-  border: 1px solid var(--color-accent);
-  border-radius: calc(var(--space-xs) / 2);
+	padding-block: calc(var(--space-xs) / 2);
+	padding-inline: var(--space-s);
+	border: 1px solid var(--color-accent);
+	border-radius: calc(var(--space-xs) / 2);
 }
 
 /* Quotes */
 
 /* blockquote: line in link color */
 blockquote {
-  border-inline-start-color: var(--color-link);
-  font-style: italic;
-  color: var(--color-text-muted);
+	border-inline-start-color: var(--color-link);
+	font-style: italic;
+	color: var(--color-text-muted);
 }
 
 /* Divider */
 
 /* hr: short centered line */
 hr {
-  inline-size: calc(100% / 3); /* a third of the column */
-  margin-block-start: var(--space-l);
-  margin-block-end: var(--space-l);
-  margin-inline: auto;
-  border-block-start: 1px solid var(--color-line);
+	inline-size: calc(100% / 3); /* a third of the column */
+	margin-block-start: var(--space-l);
+	margin-block-end: var(--space-l);
+	margin-inline: auto;
+	border-block-start: 1px solid var(--color-line);
 }
 
 /* Responses */
 
 /* everything after the article (response, further reading): full-width line above, the divider */
 article ~ * {
-  margin-block-start: var(--space-l);
-  border-block-start: calc(var(--space-xs) / 4) solid;
-  scroll-margin-block-start: var(--space-l); /* nav jumps keep the line in view */
+	margin-block-start: var(--space-l);
+	border-block-start: calc(var(--space-xs) / 4) solid;
+	scroll-margin-block-start: var(--space-l); /* nav jumps keep the line in view */
 }
 
 /* p inside .response */
 .response p {
-  font-family: var(--font-secondary);
+	font-family: var(--font-secondary);
 }
 
 /* Reading */
 
 /* h2 inside aside: Further Reading heading */
 aside h2 {
-  color: var(--color-text-muted);
+	color: var(--color-text-muted);
 }
 
 /* Footer */
 
 /* footer: the talk’s date and the response’s date */
 footer {
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+	letter-spacing: var(--tracking-wide);
+	text-transform: uppercase;
+	color: var(--color-text-muted);
 }
 
 /* footer directly in body: back to top with same style as the Nicole Fenton link */
 body > footer {
-  margin-block-start: var(--space-l);
-  padding-block-end: var(--space-s);
-  padding-inline-end: var(--space-l);
-  text-align: end;
-  letter-spacing: var(--tracking);
-  color: var(--color-text);
+	margin-block-start: var(--space-l);
+	padding-block-end: var(--space-s);
+	padding-inline-end: var(--space-l);
+	text-align: end;
+	letter-spacing: var(--tracking);
+	color: var(--color-text);
 }
 
 /* Phone: under 40rem, smaller indent (40rem ≈ --width-content + body padding; var() doesn’t work here) */
 @media (width < 40rem) {
-  :root {
-    --indent: var(--space-s);
-  }
+	:root {
+		--indent: var(--space-s);
+	}
 
-  /* Nicole Fenton and back to top line up with the text column for mobile */
-  body > header,
-  body > footer {
-    padding-inline: 0;
-  }
+	/* Nicole Fenton and back to top line up with the text column for mobile */
+	body > header,
+	body > footer {
+		padding-inline: 0;
+	}
 }
