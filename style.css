@@ -1,45 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-
-/* TODO
-
-adjust colors, try different content-width, maybe reduce the number of different text sizes - calculate them ?!
-
-
-*/
-
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=VT323&display=swap");
 
 /* Adding variables*/
 :root {
   /* Type */
-  --font-primary: "Montserrat", sans-serif;
-  --font-secondary: "Inter", sans-serif;
+  --font-primary: "IBM Plex Mono", monospace;
+  --font-secondary: "IBM Plex Sans", sans-serif;
+  --font-display: "VT323", monospace; /* headings */
   --weight-text: 400;
   --weight-strong: calc(var(--weight-text) + 100); /* one step heavier */
   --weight-extra-strong: calc(var(--weight-text) + 200);
-  --leading: 2.2;
-  --leading-tight: 1.5;
-  --tracking: 0.1em;
+  --leading: 1.9;
+  --leading-tight: 1.4;
+  --tracking: 0.04em;
   --tracking-wide: calc(var(--tracking) * 3);
-  --underline: 0.08em;
+  --underline: 0.1em;
 
   /* Space: s = body text size, each step halves or doubles */
   --space-xs: calc(var(--space-s) / 2);
-  --space-s: 1.2rem;
+  --space-s: 1.05rem;
   --space-m: calc(var(--space-s) * 2);
   --space-l: calc(var(--space-m) * 2);
-  --width-content: 42rem;
+  --width-content: 40rem;
   --indent: var(--space-m); /* side margin of lists, quotes, responses */
 
   /* Color: 4 base colors, the rest mixed from them */
   /* Maybe should reduce this even further and find better colors*/
 
-  --color-bg: color-mix(in srgb, ivory 60%, transparent);
-  --color-text: color-mix(in srgb, black 90%, transparent);
+  --color-bg: white;
+  --color-text: #111111;
   --color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);
   --color-line: color-mix(in srgb, var(--color-text) 30%, transparent);
-  --color-accent: royalblue;
-  --color-link: crimson;
+  --color-accent: green;
+  --color-link: sienna;
 }
 
 /* Base */
@@ -48,7 +40,7 @@ adjust colors, try different content-width, maybe reduce the number of different
 body {
   padding: var(--space-s);
   font-family: var(--font-primary);
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: var(--weight-text);
   line-height: var(--leading);
   color: var(--color-text);
@@ -99,6 +91,7 @@ blockquote {
 h1,
 h2,
 h3 {
+  font-family: var(--font-display);
   font-weight: var(--weight-strong);
   line-height: var(--leading-tight);
   text-wrap: balance; /* no lonely last word */
@@ -111,7 +104,7 @@ h3 {
 
 /* h1: article title */
 h1 {
-  font-size: 2.8rem;
+  font-size: 3.6rem;
   text-align: center;
 }
 
@@ -128,13 +121,13 @@ h1::after {
 /* h2: section headings */
 h2 {
   margin-block-start: var(--space-l);
-  font-size: 2.1rem;
+  font-size: 2.6rem;
 }
 
 /* h3: tip headings */
 h3 {
   margin-block-start: var(--space-m); /* closer than h2 */
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 /* Text */
@@ -164,7 +157,7 @@ body > header {
 
 /* em highlighted by size and color */
 em {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   line-height: 1; /* big words don’t push lines apart */
   font-style: italic;
   color: var(--color-accent);
@@ -195,14 +188,20 @@ a:hover {
   text-decoration-thickness: calc(var(--underline) * 1.5);
 }
 
-/* link inside header: site name, conference links */
-header a {
+/* link inside header or footer: site name, conference links, back to top */
+header a,
+footer a {
   color: inherit;
 }
 
 /* link inside nav: the contents read as a plain list */
 nav a {
   text-decoration: none;
+}
+
+/* nav: as much space above as the header leaves below it */
+nav {
+  margin-block-start: var(--space-l);
 }
 
 /* Lists */
@@ -336,9 +335,25 @@ footer {
   color: var(--color-text-muted);
 }
 
+/* footer directly in body: back to top with same style as the Nicole Fenton link */
+body > footer {
+  margin-block-start: var(--space-l);
+  padding-block-end: var(--space-s);
+  padding-inline-end: var(--space-l);
+  text-align: end;
+  letter-spacing: var(--tracking);
+  color: var(--color-text);
+}
+
 /* Phone: under 40rem, smaller indent (40rem ≈ --width-content + body padding; var() doesn’t work here) */
 @media (width < 40rem) {
   :root {
     --indent: var(--space-s);
+  }
+
+  /* Nicole Fenton and back to top line up with the text column for mobile */
+  body > header,
+  body > footer {
+    padding-inline: 0;
   }
 }
