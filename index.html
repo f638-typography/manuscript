@@ -15,7 +15,7 @@
 			<a href="https://www.nicolefenton.com/interface-writing/">Nicole Fenton</a>
 		</header>
 		<main>
-			<article>
+			<article id="article">
 				<header>
 					<h1>Interface Writing: Code for Humans</h1>
 					<p>
@@ -29,6 +29,13 @@
 						>
 						in Charlotte, North Carolina.
 					</p>
+					<nav>
+						<ul>
+							<li><a href="#article">Article</a></li>
+							<li><a href="#response">Response</a></li>
+							<li><a href="#further-reading">Further Reading</a></li>
+						</ul>
+					</nav>
 				</header>
 				<p>
 					The web and the world are full of instructions. Everywhere
@@ -516,160 +523,112 @@
 					</section>
 
 				</section>
-				<aside>
-					<h2>Further Reading</h2>
-					<ul>
-						<li>
-							<a href="https://nicelysaid.co"
-								>Nicely Said: Writing for the Web with Style and
-								Purpose</a
-							>
-						</li>
-						<li>
-							<a href="https://gist.github.com/nicoleslaw/2155621"
-								>Tiny Content Framework</a
-							>
-						</li>
-						<li>
-							<a
-								href="https://www.nicolefenton.com/writing-for-beginners"
-								>Writing for Beginners</a
-							>
-						</li>
-						<li>
-							<a
-								href="https://www.swellcontent.com/2012/02/baby-steps-to-better-product-content/"
-								>Baby Steps to Better Product Content</a
-							>
-						</li>
-						<li>
-							<a
-								href="https://www.swellcontent.com/2012/04/working-with-developers/"
-								>Working on Content with Developers</a
-							>
-						</li>
-						<li>
-							<a
-								href="https://www.x-entertainment.com/articles/0952/"
-								>Dr. Sbaitso</a
-							>
-							from Creative Labs
-						</li>
-					</ul>
-				</aside>
 				<footer>
 					<time datetime="2014-08-02">August 2, 2014</time>
 				</footer>
 			</article>
-
-      	<!-- RESPONSE START -->
-					<aside class="response">
-						<p>
-							The words are not a decoration added at the end.
-							They are part of the product. Most designers leave
-							them for the end, and it shows. Although when we do
-							not know exactly what we are building, that order
-							can be the right one, and the words turn a rough
-							product into a finished one.
-						</p>
-						<small
-							>Response · f638 ·
-							<time datetime="2026-09-24"
-								>24 Sept 2026</time
-							></small
+			<!-- RESPONSE START -->
+			<section class="response" id="response">
+				<h2>Response</h2>
+				<p>
+					The words are not a decoration added at the end.
+					They are part of the product. Most designers leave
+					them for the end, and it shows. Although when we do
+					not know exactly what we are building, that order
+					can be the right one, and the words turn a rough
+					product into a finished one.
+				</p>
+				<p>
+					Today apps sound chatty, warm and eager to please,
+					and that misses the point. The question is not how
+					friendly the text sounds, it is what the user needs.
+				</p>
+				<p>
+					Shifting your focus to your readers sounds easy
+					but is not. The person who is writing the words
+					is generally the one building the system. They
+					know the flow, the retries, all of it, and that
+					knowledge goes into words.
+				</p>
+				<p>
+					Translations make it harder. Developers might
+					not be multilingual and the AI translations
+					might carry a different meaning. This is when
+					you need an external person to audit the text,
+					and that person might not fully understand the
+					system, so there is no clear answer here.
+				</p>
+				<p>
+					In larger teams the same problem shows up with
+					different vocabulary: Log in, Sign in, Edit my
+					identity, Edit your info. This is why you need
+					to audit all the text in one pass and establish
+					a common nomenclature.
+				</p>
+				<p>
+					You should write iteratively, but never test
+					something you would not ship. If a phrase or
+					word does not feel right, it does not belong in
+					an A/B test. For everything else you should
+					iterate and do not be afraid of testing.
+					Different call to actions or navigation labels
+					can have a real impact on the user’s interaction
+					with your app, so test and expect the text to
+					keep changing.
+				</p>
+				<p>
+					More than 12 years later Fenton’s arguments still
+					hold. With AI generated content, more apps than ever
+					are trying too hard too please instead of being
+					relevant to the user, making her text more relevant
+					than ever.
+				</p>
+				<footer>
+					<time datetime="2026-09-24">September 24, 2026</time>
+				</footer>
+			</section>
+			<!-- RESPONSE END -->
+			<aside id="further-reading">
+				<h2>Further Reading</h2>
+				<ul>
+					<li>
+						<a href="https://nicelysaid.co"
+							>Nicely Said: Writing for the Web with Style and
+							Purpose</a
 						>
-					</aside>
-					<!-- RESPONSE END -->
-
-          <!-- RESPONSE START -->
-					<aside class="response">
-						<p>
-							Today apps sound chatty, warm and eager to please,
-							and that misses the point. The question is not how
-							friendly the text sounds, it is what the user needs.
-						</p>
-						<small
-							>response · f638 ·
-							<time datetime="2026-09-24"
-								>24 Sept 2026</time
-							></small
+					</li>
+					<li>
+						<a href="https://gist.github.com/nicoleslaw/2155621"
+							>Tiny Content Framework</a
 						>
-					</aside>
-					<!-- RESPONSE END -->
-
-          <!-- RESPONSE START -->
-						<aside class="response">
-							<p>
-								Shifting your focus to your readers sounds easy
-								but is not. The person who is writing the words
-								is generally the one building the system. They
-								know the flow, the retries, all of it, and that
-								knowledge goes into words.
-							</p>
-							<p>
-								Translations make it harder. Developers might
-								not be multilingual and the AI translations
-								might carry a different meaning. This is when
-								you need an external person to audit the text,
-								and that person might not fully understand the
-								system, so there is no clear answer here.
-							</p>
-							<p>
-								In larger teams the same problem shows up with
-								different vocabulary: Log in, Sign in, Edit my
-								identity, Edit your info. This is why you need
-								to audit all the text in one pass and establish
-								a common nomenclature.
-							</p>
-							<small
-								>Response · f638 ·
-								<time datetime="2026-09-24"
-									>24 Sept 2026</time
-								></small
-							>
-						</aside>
-						<!-- RESPONSE END -->
-
-            	<!-- RESPONSE START -->
-						<aside class="response">
-							<p>
-								You should write iteratively, but never test
-								something you would not ship. If a phrase or
-								word does not feel right, it does not belong in
-								an A/B test. For everything else you should
-								iterate and do not be afraid of testing.
-								Different call to actions or navigation labels
-								can have a real impact on the user’s interaction
-								with your app, so test and expect the text to
-								keep changing.
-							</p>
-							<small
-								>Response · f638 ·
-								<time datetime="2026-09-24"
-									>24 Sept 2026</time
-								></small
-							>
-						</aside>
-						<!-- RESPONSE END -->
-
-            	<!-- RESPONSE START -->
-					<aside class="response">
-						<p>
-							More than 12 years later Fenton’s arguments still
-							hold. With AI generated content, more apps than ever
-							are trying too hard too please instead of being
-							relevant to the user, making her text more relevant
-							than ever.
-						</p>
-						<small
-							>Response · f638 ·
-							<time datetime="2026-09-24"
-								>24 Sept 2026</time
-							></small
+					</li>
+					<li>
+						<a
+							href="https://www.nicolefenton.com/writing-for-beginners"
+							>Writing for Beginners</a
 						>
-					</aside>
-					<!-- RESPONSE END -->
-
+					</li>
+					<li>
+						<a
+							href="https://www.swellcontent.com/2012/02/baby-steps-to-better-product-content/"
+							>Baby Steps to Better Product Content</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.swellcontent.com/2012/04/working-with-developers/"
+							>Working on Content with Developers</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.x-entertainment.com/articles/0952/"
+							>Dr. Sbaitso</a
+						>
+						from Creative Labs
+					</li>
+				</ul>
+			</aside>
 		</main>
 	</body>
 </html>

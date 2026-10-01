@@ -85,9 +85,8 @@ section ul,
   font-style: italic;
 }
 
-/* blockquote and .response */
-blockquote,
-.response {
+/* blockquote */
+blockquote {
   margin-block-start: var(--space-m);
   margin-block-end: var(--space-m);
   padding-inline-start: var(--indent);
@@ -201,11 +200,17 @@ header a {
   color: inherit;
 }
 
+/* link inside nav: the contents read as a plain list */
+nav a {
+  text-decoration: none;
+}
+
 /* Lists */
 
-/* ol, and ul inside section */
+/* ol, ul inside section, and the nav list */
 ol,
-section ul {
+section ul,
+nav ul {
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking);
 }
@@ -303,21 +308,16 @@ hr {
 
 /* Responses */
 
-/* .response: line in accent color */
-.response {
-  border-inline-start-color: var(--color-accent);
+/* everything after the article (response, further reading): full-width line above, the divider */
+article ~ * {
+  margin-block-start: var(--space-l);
+  border-block-start: calc(var(--space-xs) / 4) solid;
+  scroll-margin-block-start: var(--space-l); /* nav jumps keep the line in view */
 }
 
 /* p inside .response */
 .response p {
   font-family: var(--font-secondary);
-}
-
-/* small inside .response: the byline */
-.response small {
-  display: block;
-  letter-spacing: var(--tracking);
-  color: var(--color-text-muted);
 }
 
 /* Reading */
@@ -329,7 +329,7 @@ aside h2 {
 
 /* Footer */
 
-/* footer: the talk’s date */
+/* footer: the talk’s date and the response’s date */
 footer {
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
