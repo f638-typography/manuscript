@@ -23,9 +23,6 @@
 	--width-content: 40rem;
 	--indent: var(--space-m); /* side margin of lists, quotes, responses */
 
-	/* Color: 4 base colors, the rest mixed from them */
-	/* Maybe should reduce this even further and find better colors*/
-
 	--color-bg: white;
 	--color-text: #111111;
 	--color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);
